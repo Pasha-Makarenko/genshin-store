@@ -1,0 +1,28 @@
+@use "../base/mixins" as mixins;
+@use "../base/consts" as consts;
+
+.about {
+  flex: 1 1 auto;
+
+  &__content {
+    padding: mixins.rem(20) 0;
+  }
+
+  &__title {
+    @include mixins.adaptiveValue("font-size", 40, 25);
+    @include mixins.adaptiveValue("margin-bottom", 30, 20);
+  }
+
+  &__subtitle {
+    @include mixins.adaptiveValue("font-size", 25, 20);
+    @include mixins.adaptiveValue("margin-bottom", 15, 10);
+  }
+
+  &__item {
+    padding: mixins.rem(10);
+
+    &:not(:last-child) {
+      border-bottom: #fff mixins.rem(1) solid;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@use "../base/mixins" as mixins;
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: mixins.rem(15);
+  @include mixins.adaptiveValue("font-size", 30, 20);
+}

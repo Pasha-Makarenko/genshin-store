@@ -1,0 +1,178 @@
+@use "../base/mixins" as mixins;
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: background 0.2s ease;
+  z-index: mixins.z("background");
+
+  &_error {
+    background: #000000; /* fallback for old browsers */
+    background: linear-gradient(
+      to right,
+      #e74c3c,
+      #000000
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  &_home {
+    background: #360033;
+    background: linear-gradient(to right, #0b8793, #360033);
+  }
+
+  &_about {
+    background: #000000; /* fallback for old browsers */
+    background: linear-gradient(
+      to right,
+      #434343,
+      #000000
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  &_characters {
+    background: #c31432; /* fallback for old browsers */
+    background: linear-gradient(
+      to left,
+      #240b36,
+      #c31432
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  &_character {
+    background: #c31432; /* fallback for old browsers */
+    background: linear-gradient(
+      to left,
+      #240b36,
+      #c31432
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    &-geo {
+      background: #fdc830; /* fallback for old browsers */
+      background: linear-gradient(
+        to left,
+        #f37335,
+        #fdc830
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    &-dendro {
+      background: #52c234; /* fallback for old browsers */
+      background: linear-gradient(
+        to right,
+        #061700,
+        #52c234
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    &-cryo {
+      background: #4ecdc4; /* fallback for old browsers */
+      background: linear-gradient(
+        to right,
+        #556270,
+        #4ecdc4
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    &-pyro {
+      background: #333333; /* fallback for old browsers */
+      background: linear-gradient(
+        to right,
+        #dd1818,
+        #333333
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    &-hydro {
+      background: #000046; /* fallback for old browsers */
+      background: linear-gradient(
+        to right,
+        #1cb5e0,
+        #000046
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    &-electro {
+      background: #ad5389; /* fallback for old browsers */
+      background: linear-gradient(
+        to right,
+        #3c1053,
+        #ad5389
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    &-anemo {
+      background: #43cea2; /* fallback for old browsers */
+      background: linear-gradient(
+        to right,
+        #185a9d,
+        #43cea2
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+  }
+
+  &_enemies {
+    background: #ba8b02; /* fallback for old browsers */
+    background: linear-gradient(
+      to right,
+      #181818,
+      #ba8b02
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    &-common {
+      background: #1e130c; /* fallback for old browsers */
+      background: linear-gradient(
+        to right,
+        #9a8478,
+        #1e130c
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    &-elite {
+      background: #c02425; /* fallback for old browsers */
+      background: linear-gradient(
+        to right,
+        #f0cb35,
+        #c02425
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    &-unique {
+      background: #42275a; /* fallback for old browsers */
+      background: linear-gradient(
+        to right,
+        #734b6d,
+        #42275a
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+  }
+
+  &_bosses {
+    background: #a80077; /* fallback for old browsers */
+    background: linear-gradient(
+      to right,
+      #66ff00,
+      #a80077
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  &_weapons {
+    background: #141e30; /* fallback for old browsers */
+    background: linear-gradient(
+      to right,
+      #243b55,
+      #141e30
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  &_artifacts {
+    background: #00bf8f; /* fallback for old browsers */
+    background: linear-gradient(
+      to right,
+      #001510,
+      #00bf8f
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+}

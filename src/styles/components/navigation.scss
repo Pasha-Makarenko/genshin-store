@@ -1,0 +1,11 @@
+@use "../base/mixins" as mixins;
+@use "../base/consts" as consts;
+
+.navigation {
+  display: flex;
+  gap: mixins.rem(20);
+
+  @media (max-width: consts.$mobile_px + px) {
+    flex-direction: column;
+  }
+}

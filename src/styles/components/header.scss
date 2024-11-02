@@ -1,0 +1,14 @@
+@use "../base/mixins" as mixins;
+@use "../base/consts" as consts;
+
+.header {
+  min-height: mixins.rem(80);
+  z-index: mixins.z("header");
+
+  &__container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

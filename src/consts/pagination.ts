@@ -1,0 +1,5 @@
+export const PAGINATION = {
+  START_PAGE: 0,
+  COUNT_PER_PAGE: 12,
+  MAX_SEARCH_COUNT: 12,
+}

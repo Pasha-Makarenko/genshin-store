@@ -1,0 +1,76 @@
+@use "../base/mixins" as mixins;
+
+.search {
+  position: relative;
+  width: 100%;
+  border: #0897ab mixins.rem(2) solid;
+  border-radius: mixins.rem(20);
+  box-shadow: rgba(0, 0, 0, 0.35) 0 mixins.rem(5) mixins.rem(15);
+  @include mixins.adaptiveValue("margin-bottom", 40, 20);
+  transition: all 0.4s ease;
+
+  &:hover {
+    border: #0aadc4 mixins.rem(2) solid;
+
+    > input::placeholder {
+      opacity: 100%;
+    }
+  }
+
+  .search__list {
+    max-height: mixins.rem(0);
+    overflow-y: scroll;
+    padding: 0 mixins.rem(10);
+    transition: max-height 0.2s ease;
+  }
+
+  .search__item {
+    a {
+      display: flex;
+      height: mixins.rem(30);
+      align-items: center;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  &_active {
+    border-radius: 0;
+  }
+
+  &__input {
+    width: 100%;
+    padding: mixins.rem(10) mixins.rem(20);
+    background: transparent;
+    color: #fff;
+    transition: border 0.2s ease;
+
+    &::placeholder {
+      color: #fff;
+      opacity: 70%;
+      transition: opacity 0.2s ease;
+    }
+
+    &:focus ~ .search__list {
+      max-height: mixins.rem(120);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: mixins.rem(20);
+    top: mixins.rem(6);
+    opacity: 70%;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      opacity: 100%;
+      transform: scale(1.2);
+    }
+  }
+}

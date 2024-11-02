@@ -1,0 +1,56 @@
+@use "../base/mixins" as mixins;
+@use "../base/consts" as consts;
+
+.items {
+  &__list {
+    @include mixins.adaptiveValue("margin-bottom", 40, 20);
+  }
+}
+
+.list {
+  width: 100%;
+  display: grid;
+  gap: mixins.rem(20);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @media (max-width: consts.$tablet_px + px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: consts.$mobile_px + px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: consts.$mobileSmall_px + px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item-list {
+  width: 100%;
+  justify-self: center;
+  border-radius: mixins.rem(20);
+  box-shadow: none;
+  background: none;
+  transition:
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0 mixins.rem(5) mixins.rem(15);
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  &__image {
+    object-fit: contain;
+    width: 100%;
+  }
+
+  &__content {
+    display: flex;
+    gap: mixins.rem(20);
+    justify-content: space-between;
+    padding: mixins.rem(20);
+    @include mixins.adaptiveValue("font-size", 20, 12.5);
+  }
+}
