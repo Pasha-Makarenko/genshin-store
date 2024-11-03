@@ -44,23 +44,26 @@ export default function Character({ params: { id } }: PageItemProps) {
   }
 
   return (
-    <section className="character">
-      <div className="character__info">
+    <section className="character item">
+      <div className="item__info">
         <Image
           loader={() => character.data!.urls.card}
           src={character.data.urls.card}
           alt={character.data.name}
           width={1000}
           height={2000}
-          className="character__card"
+          onError={e => {
+            ;(e.target as HTMLImageElement).style.display = "none"
+          }}
+          className="item__card"
           layout="responsive"
           loading="lazy"
         />
-        <div className="character__content">
-          <h1 className="character__name">{character.data.name}</h1>
-          <h3 className="character__title">{character.data.title}</h3>
-          <p className="character__description">{character.data.description}</p>
-          <table className="character__table table">
+        <div className="item__content">
+          <h1 className="item__name">{character.data.name}</h1>
+          <h3 className="item__title">{character.data.title}</h3>
+          <p className="item__description">{character.data.description}</p>
+          <table className="item__table table">
             <tbody>
               <tr>
                 <td>Rarity</td>
@@ -87,6 +90,9 @@ export default function Character({ params: { id } }: PageItemProps) {
                       src={ENDPOINTS.VISION.ICON(character.data.vision)}
                       alt={character.data.vision}
                       loading="lazy"
+                      onError={e => {
+                        ;(e.target as HTMLImageElement).style.display = "none"
+                      }}
                       width={30}
                       height={30}
                     />
@@ -119,6 +125,9 @@ export default function Character({ params: { id } }: PageItemProps) {
                       src={character.data.urls.constellation}
                       alt={character.data.constellation}
                       loading="lazy"
+                      onError={e => {
+                        ;(e.target as HTMLImageElement).style.display = "none"
+                      }}
                       width={30}
                       height={30}
                     />
@@ -139,6 +148,9 @@ export default function Character({ params: { id } }: PageItemProps) {
                         src={ENDPOINTS.NATION.ICON(character.data.nation)}
                         alt={character.data.nation}
                         loading="lazy"
+                        onError={e => {
+                          ;(e.target as HTMLImageElement).style.display = "none"
+                        }}
                         width={30}
                         height={30}
                       />
@@ -168,8 +180,8 @@ export default function Character({ params: { id } }: PageItemProps) {
           </table>
         </div>
       </div>
-      <h1 className="character__table-title">Ascension</h1>
-      <table className="character__skill table">
+      <h1 className="item__table-title">Ascension</h1>
+      <table className="item__skill table">
         <thead>
           <tr>
             <th>Level</th>
@@ -195,8 +207,8 @@ export default function Character({ params: { id } }: PageItemProps) {
           )}
         </tbody>
       </table>
-      <h1 className="character__table-title">Skill talents</h1>
-      <table className="character__skill table_descriptioned table">
+      <h1 className="item__subtitle">Skill talents</h1>
+      <table className="item__skill table_descriptioned table">
         <thead>
           <tr>
             <th>Icon</th>
@@ -216,6 +228,9 @@ export default function Character({ params: { id } }: PageItemProps) {
                     src={character.data!.urls.skillTalents[talent.type]!}
                     alt={talent.name}
                     loading="lazy"
+                    onError={e => {
+                      ;(e.target as HTMLImageElement).style.display = "none"
+                    }}
                     width={60}
                     height={60}
                   />
@@ -230,8 +245,8 @@ export default function Character({ params: { id } }: PageItemProps) {
           ))}
         </tbody>
       </table>
-      <h1 className="character__table-title">Passive talents</h1>
-      <table className="character__passive table_descriptioned table">
+      <h1 className="item__subtitle">Passive talents</h1>
+      <table className="itemr__passive table_descriptioned table">
         <thead>
           <tr>
             <th>Icon</th>
@@ -249,6 +264,9 @@ export default function Character({ params: { id } }: PageItemProps) {
                     src={character.data!.urls.passiveTalents[i]}
                     alt={talent.name}
                     loading="lazy"
+                    onError={e => {
+                      ;(e.target as HTMLImageElement).style.display = "none"
+                    }}
                     width={60}
                     height={60}
                   />
@@ -263,8 +281,8 @@ export default function Character({ params: { id } }: PageItemProps) {
           ))}
         </tbody>
       </table>
-      <h1 className="character__table-title">Constellations</h1>
-      <table className="character__constellations table_descriptioned table">
+      <h1 className="item__subtitle">Constellations</h1>
+      <table className="item__constellations table_descriptioned table">
         <thead>
           <tr>
             <th>Level</th>
@@ -283,6 +301,9 @@ export default function Character({ params: { id } }: PageItemProps) {
                     src={character.data!.urls.constellations[i]}
                     alt={constellation.name}
                     loading="lazy"
+                    onError={e => {
+                      ;(e.target as HTMLImageElement).style.display = "none"
+                    }}
                     width={60}
                     height={60}
                   />
@@ -296,10 +317,7 @@ export default function Character({ params: { id } }: PageItemProps) {
           ))}
         </tbody>
       </table>
-      <Link
-        href={character.data.urls.fandom}
-        className="character__fandom link"
-      >
+      <Link href={character.data.urls.fandom} className="item__fandom link">
         More information about {character.data.name}
       </Link>
     </section>

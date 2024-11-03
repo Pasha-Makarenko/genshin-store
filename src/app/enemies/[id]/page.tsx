@@ -51,6 +51,9 @@ export default function Character({ params: { id } }: PageItemProps) {
                   src={ENDPOINTS.NATION.ICON(data.region)}
                   alt={data.region}
                   loading="lazy"
+                  onError={e => {
+                    ;(e.target as HTMLImageElement).style.display = "none"
+                  }}
                   width={30}
                   height={30}
                 />
@@ -81,6 +84,9 @@ export default function Character({ params: { id } }: PageItemProps) {
                 src={ENDPOINTS.VISION.ICON(data.element)}
                 alt={data.element}
                 loading="lazy"
+                onError={e => {
+                  ;(e.target as HTMLImageElement).style.display = "none"
+                }}
                 width={30}
                 height={30}
               />
@@ -99,8 +105,8 @@ export default function Character({ params: { id } }: PageItemProps) {
       case "mitachurl":
         node = (
           <>
-            <h3 className="enemy__subtitle">Mitachurl types</h3>
-            <table className="enemy__table table_descriptioned table">
+            <h3 className="item__subtitle">Mitachurl types</h3>
+            <table className="item__table table_descriptioned table">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -121,8 +127,8 @@ export default function Character({ params: { id } }: PageItemProps) {
       case "lawachurl":
         node = (
           <>
-            <h3 className="enemy__subtitle">Lawachurl</h3>
-            <table className="enemy__table table_descriptioned table">
+            <h3 className="item__subtitle">Lawachurl</h3>
+            <table className="item__table table_descriptioned table">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -140,8 +146,8 @@ export default function Character({ params: { id } }: PageItemProps) {
       case "fatui-skirmisher":
         node = (
           <>
-            <h3 className="enemy__subtitle">Fatui Skirmisher types</h3>
-            <table className="enemy__table table_descriptioned table">
+            <h3 className="item__subtitle">Fatui Skirmisher types</h3>
+            <table className="item__table table_descriptioned table">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -175,27 +181,30 @@ export default function Character({ params: { id } }: PageItemProps) {
   }
 
   return (
-    <section className="enemy">
-      <div className="enemy__info">
+    <section className="enemy item">
+      <div className="item__info">
         <Image
           loader={() => enemy.data!.urls.portrait || ""}
           src={enemy.data.urls.portrait || ""}
           alt={enemy.data.name}
           width={1000}
           height={2000}
-          className="enemy__card"
+          onError={e => {
+            ;(e.target as HTMLImageElement).style.display = "none"
+          }}
+          className="item__card"
           layout="responsive"
           loading="lazy"
         />
-        <div className="enemy__content">
-          <h1 className="enemy__name">{enemy.data.name}</h1>
+        <div className="item__content">
+          <h1 className="item__name">{enemy.data.name}</h1>
           {enemy.data.title ? (
-            <h1 className="enemy__name">{enemy.data.title}</h1>
+            <h1 className="item__name">{enemy.data.title}</h1>
           ) : null}
           {enemy.data.description && enemy.data.description !== "N/A" ? (
-            <p className="enemy__description">{enemy.data.description}</p>
+            <p className="item__description">{enemy.data.description}</p>
           ) : null}
-          <table className="enemy__table table">
+          <table className="item__table table">
             <tbody>
               <tr>
                 <td>Type</td>
@@ -211,6 +220,9 @@ export default function Character({ params: { id } }: PageItemProps) {
                         src={ENDPOINTS.NATION.ICON(enemy.data.region)}
                         alt={enemy.data.region}
                         loading="lazy"
+                        onError={e => {
+                          ;(e.target as HTMLImageElement).style.display = "none"
+                        }}
                         width={30}
                         height={30}
                       />
@@ -243,6 +255,10 @@ export default function Character({ params: { id } }: PageItemProps) {
                             src={ENDPOINTS.VISION.ICON(element)}
                             alt={element}
                             loading="lazy"
+                            onError={e => {
+                              ;(e.target as HTMLImageElement).style.display =
+                                "none"
+                            }}
                             width={30}
                             height={30}
                           />
@@ -267,9 +283,9 @@ export default function Character({ params: { id } }: PageItemProps) {
       </div>
       {enemy.data.descriptions ? (
         <>
-          <h3 className="enemy__subtitle">Descriptions</h3>
+          <h3 className="item__subtitle">Descriptions</h3>
           {enemy.data.descriptions.map((desc, i) => (
-            <article className="enemy__article article" key={i}>
+            <article className="item__article article" key={i}>
               <h1 className="article__title">{desc.name}</h1>
               <p className="article__description">{desc.description}</p>
             </article>
@@ -278,9 +294,9 @@ export default function Character({ params: { id } }: PageItemProps) {
       ) : null}
       {enemy.data["elemental-descriptions"] ? (
         <>
-          <h3 className="enemy__subtitle">Elemental descriptions</h3>
+          <h3 className="item__subtitle">Elemental descriptions</h3>
           {enemy.data["elemental-descriptions"].map((desc, i) => (
-            <article className="enemy__article article" key={i}>
+            <article className="item__article article" key={i}>
               <h1 className="article__title article__title_flex">
                 <Image
                   loader={() => ENDPOINTS.VISION.ICON(desc.element)}
@@ -289,6 +305,9 @@ export default function Character({ params: { id } }: PageItemProps) {
                   loading="lazy"
                   width={30}
                   height={30}
+                  onError={e => {
+                    ;(e.target as HTMLImageElement).style.display = "none"
+                  }}
                 />
                 <div>{desc.element}</div>
               </h1>
@@ -299,8 +318,8 @@ export default function Character({ params: { id } }: PageItemProps) {
       ) : null}
       {enemy.data.drops && enemy.data.drops !== "None" ? (
         <>
-          <h3 className="enemy__subtitle">Drops</h3>
-          <table className="enemy__table table">
+          <h3 className="item__subtitle">Drops</h3>
+          <table className="item__table table">
             <thead>
               <tr>
                 <th>Name</th>
@@ -328,8 +347,8 @@ export default function Character({ params: { id } }: PageItemProps) {
       ) : null}
       {enemy.data.artifacts ? (
         <>
-          <h3 className="enemy__subtitle">Artifacts</h3>
-          <table className="enemy__table table">
+          <h3 className="item__subtitle">Artifacts</h3>
+          <table className="item__table table">
             <thead>
               <tr>
                 <th>Name</th>
@@ -373,7 +392,7 @@ export default function Character({ params: { id } }: PageItemProps) {
         </>
       ) : null}
       {specificEnemy(enemy.data)}
-      <Link href={enemy.data.urls.fandom} className="enemy__fandom link">
+      <Link href={enemy.data.urls.fandom} className="item__fandom link">
         More information about {enemy.data.name}
       </Link>
     </section>

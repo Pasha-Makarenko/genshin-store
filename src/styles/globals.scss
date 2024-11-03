@@ -129,6 +129,11 @@ main {
       }
     }
   }
+
+  &__table-title {
+    margin-bottom: mixins.rem(20);
+    font-size: mixins.rem(25);
+  }
 }
 
 .article {

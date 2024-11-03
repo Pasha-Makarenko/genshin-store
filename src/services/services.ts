@@ -25,9 +25,7 @@ class Services<T extends Item> {
       const list: Array<T["id"]> = await response.json()
 
       return {
-        data: search
-          ? list.filter((id) => Utils.strIncludes(id, search))
-          : list,
+        data: search ? list.filter(id => Utils.strIncludes(id, search)) : list,
         error: null,
       }
     } catch (error) {
@@ -38,7 +36,7 @@ class Services<T extends Item> {
     }
   }
 
-  public getItemByID: GetItemByID<T> = async (id) => {
+  public getItemByID: GetItemByID<T> = async id => {
     try {
       const response = await fetch(`${BASE_URL}/${this.endpoint}/${id}`)
 

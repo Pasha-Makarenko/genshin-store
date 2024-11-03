@@ -27,7 +27,6 @@ export default function Weapons({
       searchParams={searchParams}
       baseURLByID={ENEMIES_PATH_BY_ID}
       itemCreator={itemCreator}
-      preloadCount={1}
     />
   )
 }

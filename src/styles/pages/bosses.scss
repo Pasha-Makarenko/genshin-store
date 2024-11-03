@@ -4,33 +4,3 @@
 .bosses {
   flex: 1 1 auto;
 }
-.boss {
-  &__info {
-    display: flex;
-    align-items: start;
-    gap: mixins.rem(60);
-    margin-bottom: mixins.rem(40);
-    justify-content: center;
-
-    @media (max-width: consts.$tablet_px + px) {
-      flex-direction: column;
-      justify-content: start;
-      align-items: center;
-    }
-  }
-
-  &__card {
-    display: block;
-    object-fit: contain;
-  }
-
-  &__name {
-    @include mixins.adaptiveValue("font-size", 40, 25);
-    @include mixins.adaptiveValue("margin-bottom", 10, 7.5);
-  }
-
-  &__subtitle {
-    margin-bottom: mixins.rem(20);
-    font-size: mixins.rem(25);
-  }
-}

@@ -44,22 +44,25 @@ export default function Page({ params: { id } }: PageItemProps) {
   }
 
   return (
-    <section className="boss">
-      <div className="boss__info">
+    <section className="boss item">
+      <div className="item__info">
         <Image
           loader={() => boss.data!.urls.portrait}
           src={boss.data.urls.portrait}
           alt={boss.data.name}
           width={1000}
           height={1000}
-          className="boss__card"
+          onError={e => {
+            ;(e.target as HTMLImageElement).style.display = "none"
+          }}
+          className="item__card"
           layout="responsive"
           loading="lazy"
         />
-        <div className="boss__content">
-          <h1 className="boss__name">{boss.data.name}</h1>
-          <h3 className="boss__subtitle">Drops</h3>
-          <table className="boss__table table">
+        <div className="item__content">
+          <h1 className="item__name">{boss.data.name}</h1>
+          <h3 className="item__subtitle">Drops</h3>
+          <table className="item__table table">
             <thead>
               <tr>
                 <th>Icon</th>
@@ -77,6 +80,9 @@ export default function Page({ params: { id } }: PageItemProps) {
                       src={boss.data!.urls.drops[drop.name]}
                       alt={drop.name}
                       loading="lazy"
+                      onError={e => {
+                        ;(e.target as HTMLImageElement).style.display = "none"
+                      }}
                       width={60}
                       height={60}
                     />
@@ -96,8 +102,8 @@ export default function Page({ params: { id } }: PageItemProps) {
           </table>
         </div>
       </div>
-      <h3 className="boss__subtitle">Artifacts</h3>
-      <table className="boss__table table">
+      <h3 className="item__subtitle">Artifacts</h3>
+      <table className="item__table table">
         <thead>
           <tr>
             <th>Name</th>
@@ -126,7 +132,7 @@ export default function Page({ params: { id } }: PageItemProps) {
           ))}
         </tbody>
       </table>
-      <Link href={boss.data.urls.fandom} className="boss__fandom link">
+      <Link href={boss.data.urls.fandom} className="item__fandom link">
         More information about {boss.data.name}
       </Link>
     </section>

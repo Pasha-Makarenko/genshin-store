@@ -44,10 +44,10 @@ export default function Page({ params: { id } }: PageItemProps) {
   }
 
   return (
-    <section className="artifact">
-      <h1 className="artifact__name">{artifact.data.name}</h1>
-      <h3 className="artifact__subtitle">Set</h3>
-      <table className="artifact__table table">
+    <section className="artifact item">
+      <h1 className="item__name">{artifact.data.name}</h1>
+      <h3 className="item__subtitle">Set</h3>
+      <table className="item__table table">
         <thead>
           <tr>
             <th>Icon</th>
@@ -65,6 +65,9 @@ export default function Page({ params: { id } }: PageItemProps) {
                   src={artifact.data!.urls[key as keyof Artifact["urls"]]}
                   alt={value}
                   loading="lazy"
+                  onError={e => {
+                    ;(e.target as HTMLImageElement).style.display = "none"
+                  }}
                   width={60}
                   height={60}
                 />
@@ -74,8 +77,8 @@ export default function Page({ params: { id } }: PageItemProps) {
           ))}
         </tbody>
       </table>
-      <h3 className="artifact__subtitle">Information</h3>
-      <table className="artifact__table table">
+      <h3 className="item__subtitle">Information</h3>
+      <table className="item__table table">
         <tbody>
           <tr>
             <td>Max rarity</td>
@@ -97,7 +100,7 @@ export default function Page({ params: { id } }: PageItemProps) {
           </tr>
         </tbody>
       </table>
-      <Link href={artifact.data.urls.fandom} className="artifact__fandom link">
+      <Link href={artifact.data.urls.fandom} className="item__fandom link">
         More information about {artifact.data.name}
       </Link>
     </section>

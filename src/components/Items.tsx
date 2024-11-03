@@ -18,7 +18,6 @@ export interface ItemProps<T extends Item> {
   searchParams: PageSearchParams
   baseURLByID: (id: T["id"]) => string
   itemCreator: (item: T) => ReactNode
-  preloadCount?: number
 }
 
 function Items<T extends Item>(props: ItemProps<T>) {
@@ -59,10 +58,6 @@ function Items<T extends Item>(props: ItemProps<T>) {
   }, [])
 
   useEffect(() => {
-    console.log(items.data)
-  }, [items])
-
-  useEffect(() => {
     paginateHandler()
   }, [search])
 
@@ -74,22 +69,6 @@ function Items<T extends Item>(props: ItemProps<T>) {
         !!pagination.showMoreCount,
         search
       )
-
-      if (props.preloadCount) {
-        for (let i = 0; i < props.preloadCount; i++) {
-          if (
-            i <=
-            Math.ceil(items.allID.length / PAGINATION.COUNT_PER_PAGE) - 1
-          ) {
-            await items.getItems(
-              pagination.page + pagination.showMoreCount + i + 1,
-              PAGINATION.COUNT_PER_PAGE,
-              false,
-              search
-            )
-          }
-        }
-      }
     }
 
     pageChangeHandler().then(_ => paginateHandler())

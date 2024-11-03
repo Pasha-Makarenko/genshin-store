@@ -29,7 +29,9 @@
     z-index: mixins.z("burger-close");
     cursor: pointer;
     user-select: none;
-    transform: scale(0.4);
+    transform: scale(0.4) translate(-50%, -50%);
+    width: mixins.rem(40);
+    height: mixins.rem(40);
 
     // https://codepen.io/ainalem/pen/wvKOEMV
     &__line {

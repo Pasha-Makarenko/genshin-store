@@ -42,21 +42,24 @@ export default function Page({ params: { id } }: PageItemProps) {
   }
 
   return (
-    <section className="weapon">
-      <div className="weapon__info">
+    <section className="weapon item">
+      <div className="item__info">
         <Image
           loader={() => weapon.data!.urls.icon}
           src={weapon.data.urls.icon}
           alt={weapon.data.name}
           width={1000}
           height={1000}
-          className="weapon__card"
+          onError={e => {
+            ;(e.target as HTMLImageElement).style.display = "none"
+          }}
+          className="item__card"
           layout="responsive"
           loading="lazy"
         />
-        <div className="weapon__content">
-          <h1 className="weapon__name">{weapon.data.name}</h1>
-          <table className="weapon__table table">
+        <div className="item__content">
+          <h1 className="item__name">{weapon.data.name}</h1>
+          <table className="item__table table">
             <tbody>
               <tr>
                 <td>Rarity</td>
@@ -92,9 +95,9 @@ export default function Page({ params: { id } }: PageItemProps) {
           </table>
         </div>
       </div>
-      <h1 className="weapon__title">{weapon.data.passiveName}</h1>
-      <h1 className="weapon__description">{weapon.data.passiveDesc}</h1>
-      <Link href={weapon.data.urls.fandom} className="weapon__fandom link">
+      <h1 className="item__title">{weapon.data.passiveName}</h1>
+      <h1 className="item__description">{weapon.data.passiveDesc}</h1>
+      <Link href={weapon.data.urls.fandom} className="item__fandom link">
         More information about {weapon.data.name}
       </Link>
     </section>

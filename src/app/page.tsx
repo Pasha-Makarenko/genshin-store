@@ -17,8 +17,8 @@ export default function Home() {
           <div className="home__card card-home">
             <h1 className="card-home__title">Genshin store</h1>
             <p className="card-home__description">
-              Genshin Store is a platform where you can view all the characters
-              from the game Genshin Impact.
+              Genshin Store is a platform where you can view all the characters,
+              enemies, bosses, etc. from the game Genshin Impact.
             </p>
             <Link className="card-home__btn" href={CHARACTERS_PATH}>
               Let&apos;s start

@@ -21,6 +21,9 @@ export default function Bosses({
         alt={item.id}
         width={256}
         height={256}
+        onError={e => {
+          ;(e.target as HTMLImageElement).style.display = "none"
+        }}
         className="item-list__image"
         loading="lazy"
       />
@@ -36,7 +39,6 @@ export default function Bosses({
       searchParams={searchParams}
       baseURLByID={BOSSES_PATH_BY_ID}
       itemCreator={itemCreator}
-      preloadCount={1}
     />
   )
 }

@@ -110,8 +110,6 @@ class Store<T extends Item> {
       },
     })
 
-    console.log(page)
-
     let items
 
     if (

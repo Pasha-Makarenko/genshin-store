@@ -17,15 +17,3 @@
     }
   }
 }
-
-.artifact {
-  &__name {
-    @include mixins.adaptiveValue("font-size", 40, 25);
-    @include mixins.adaptiveValue("margin-bottom", 40, 25);
-  }
-
-  &__subtitle {
-    margin-bottom: mixins.rem(20);
-    font-size: mixins.rem(25);
-  }
-}

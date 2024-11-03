@@ -31,7 +31,6 @@ export default function Artifacts({
       searchParams={searchParams}
       baseURLByID={ARTIFACTS_PATH_BY_ID}
       itemCreator={itemCreator}
-      preloadCount={1}
     />
   )
 }
